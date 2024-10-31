@@ -8,7 +8,7 @@ import './css/Nav.css'
 const App = () => (
 	<Router>
 		<nav className='navbar'>
-			<p>Mood Tracker App</p>
+			<Link to='/'>Mood Tracker App</Link>
 			<Link to='/login'>Login</Link>
 			<Link to='/register'>Register</Link>
 		</nav>

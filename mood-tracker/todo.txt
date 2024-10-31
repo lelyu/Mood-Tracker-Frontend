@@ -1,0 +1,3 @@
+Oct 30: added css for the nav bar
+
+todo: style authform, add components for displaying mood
