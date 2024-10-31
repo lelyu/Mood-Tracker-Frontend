@@ -3,10 +3,12 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './components/Auth/Login'
 import Register from './components/Auth/Register'
+import './css/Nav.css'
 
 const App = () => (
 	<Router>
-		<nav>
+		<nav className='navbar'>
+			<p>Mood Tracker App</p>
 			<Link to='/login'>Login</Link>
 			<Link to='/register'>Register</Link>
 		</nav>
