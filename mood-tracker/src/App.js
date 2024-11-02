@@ -3,7 +3,10 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './components/Auth/Login'
 import Register from './components/Auth/Register'
+import MoodForm from './components/Mood/MoodForm'
+import MoodView from './components/Mood/MoodView'
 import './css/Nav.css'
+import Dashboard from './components/Dashboard/Dashboard'
 
 const App = () => (
 	<Router>
@@ -15,7 +18,8 @@ const App = () => (
 		<Routes>
 			<Route path='/login' element={<Login />} />
 			<Route path='/register' element={<Register />} />
-			<Route path='/' element={<h1>Welcome to Mood Tracker App</h1>} />
+			<Route path='/' element={<Dashboard />} />
+			<Route path='/mood' element={<MoodView />} />
 		</Routes>
 	</Router>
 )
