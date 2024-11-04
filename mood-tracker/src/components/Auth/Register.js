@@ -2,13 +2,14 @@
 import React, { useState } from 'react'
 import AuthForm from './AuthForm'
 import axios from 'axios'
-const API_URL = 'http://localhost:3000/api/v1/auth/'
+const API_URL = 'http://localhost:3000/api/v1/'
 
 const Register = () => {
 	const [formData, setFormData] = useState({
-		username: '',
+		name: '',
 		password: '',
 		confirmPassword: '',
+		email: '',
 	})
 	const [error, setError] = useState('')
 

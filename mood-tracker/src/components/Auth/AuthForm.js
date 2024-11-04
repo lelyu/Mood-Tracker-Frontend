@@ -7,9 +7,20 @@ const AuthForm = ({ onSubmit, isRegister, setFormData, formData, error }) => (
 			<label>Username:</label>
 			<input
 				type='text'
-				value={formData.username}
+				value={formData.name}
 				onChange={(e) =>
-					setFormData({ ...formData, username: e.target.value })
+					setFormData({ ...formData, name: e.target.value })
+				}
+				required
+			/>
+		</div>
+		<div>
+			<label>Email:</label>
+			<input
+				type='text'
+				value={formData.email}
+				onChange={(e) =>
+					setFormData({ ...formData, email: e.target.value })
 				}
 				required
 			/>
