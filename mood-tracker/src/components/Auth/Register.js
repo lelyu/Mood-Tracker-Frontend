@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import AuthForm from './AuthForm'
 import axios from 'axios'
+const API_URL = 'http://localhost:3000/api/v1/auth/'
 
 const Register = () => {
 	const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ const Register = () => {
 			return
 		}
 		try {
-			const response = await axios.post('/api/register', formData) // Replace with your actual API route
+			const response = await axios.post(API_URL + 'register', formData) // Replace with your actual API route
 			console.log('Registration successful:', response.data)
 			// Redirect user or show success message
 		} catch (err) {

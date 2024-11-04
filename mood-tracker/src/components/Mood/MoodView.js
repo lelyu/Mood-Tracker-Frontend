@@ -5,11 +5,11 @@ import axios from 'axios'
 const MoodView = () => {
 	const [moods, setMoods] = useState([])
 	const [error, setError] = useState('')
-
+	const API_URL = 'http://localhost:3000/api/v1/mood/'
 	useEffect(() => {
 		const fetchMoods = async () => {
 			try {
-				const { data } = await axios.get('/api/mood')
+				const { data } = await axios.get(API_URL)
 				setMoods(data)
 				setError('')
 			} catch (err) {
@@ -21,7 +21,7 @@ const MoodView = () => {
 
 	const deleteMood = async (id) => {
 		try {
-			await axios.delete(`/api/mood/${id}`)
+			await axios.delete(API_URL + id)
 			setMoods((prevMoods) => prevMoods.filter((mood) => mood._id !== id))
 			setError('')
 		} catch (err) {
@@ -31,7 +31,7 @@ const MoodView = () => {
 
 	const updateMood = async (id, mood) => {
 		try {
-			await axios.put(`/api/mood/${id}`, { mood })
+			await axios.put(API_URL + id, { mood })
 			setMoods((prevMoods) =>
 				prevMoods.map((prevMood) =>
 					prevMood._id === id ? { ...prevMood, mood } : prevMood

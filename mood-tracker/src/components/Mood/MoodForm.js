@@ -6,11 +6,12 @@ const MoodForm = () => {
 	const [intensity, setIntensity] = useState(1)
 	const [note, setNote] = useState('')
 	const [error, setError] = useState('')
+	const API_URL = 'http://localhost:3000/api/v1/mood/'
 
 	const onSubmit = async (e) => {
 		e.preventDefault() // prevent page refresh
 		try {
-			await axios.post('/api/mood', { mood, intensity, note })
+			await axios.post(API_URL, { mood, intensity, note })
 			setMood('')
 			setIntensity(1)
 			setNote('')
