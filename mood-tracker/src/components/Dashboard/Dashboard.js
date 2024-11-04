@@ -6,11 +6,8 @@ const Dashboard = () => {
 
 	return (
 		<div>
-			<h1>Welcome to the Daily Mood Tracker App</h1>
-			<button onClick={() => setShowForm(!showForm)}>
-				{showForm ? 'Hide Form' : 'Show Form'}
-			</button>
-			{showForm && <MoodForm />}
+			<h1>How are you feeling today?</h1>
+			<MoodForm />
 		</div>
 	)
 }
