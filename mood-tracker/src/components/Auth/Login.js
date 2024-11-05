@@ -5,14 +5,16 @@ import axios from 'axios'
 
 const API_URL = 'http://localhost:3000/api/v1/'
 const Login = () => {
-	const [formData, setFormData] = useState({ username: '', password: '' })
+	const [formData, setFormData] = useState({ email: '', password: '' })
 	const [error, setError] = useState('')
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 
 	const handleLogin = async (e) => {
 		e.preventDefault()
 		try {
-			const response = await axios.post(API_URL + 'login', formData) // Replace with your actual API route
+			const response = await axios.post(API_URL + 'login', formData, {
+				withCredentials: true,
+			}) // Replace with your actual API route
 			console.log('Login successful:', response.data)
 			setIsLoggedIn(true)
 			// Redirect user or save token, etc.
@@ -23,7 +25,13 @@ const Login = () => {
 
 	const handleLogout = async () => {
 		try {
-			const response = await axios.post(API_URL + 'logout') // Replace with your actual API route
+			const response = await axios.post(
+				API_URL + 'logout',
+				{},
+				{
+					withCredentials: true,
+				}
+			) // Replace with your actual API route
 			console.log('Logout successful:', response.data)
 			setIsLoggedIn(false)
 			// Redirect user or clear token, etc.

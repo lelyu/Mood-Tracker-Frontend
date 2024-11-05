@@ -9,8 +9,9 @@ const Dashboard = () => {
 	const testAuthAPICalls = async () => {
 		try {
 			console.log('Testing API calls...')
-			console.log(API_URL)
-			const response = await axios.get(API_URL + 'dashboard')
+			const response = await axios.get(API_URL + 'dashboard', {
+				withCredentials: true,
+			})
 			console.log('Test API call:', response.data)
 		} catch (err) {
 			console.error(

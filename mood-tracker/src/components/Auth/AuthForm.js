@@ -3,17 +3,19 @@ import React from 'react'
 
 const AuthForm = ({ onSubmit, isRegister, setFormData, formData, error }) => (
 	<form onSubmit={onSubmit}>
-		<div>
-			<label>Username:</label>
-			<input
-				type='text'
-				value={formData.name}
-				onChange={(e) =>
-					setFormData({ ...formData, name: e.target.value })
-				}
-				required
-			/>
-		</div>
+		{isRegister && (
+			<div>
+				<label>Username:</label>
+				<input
+					type='text'
+					value={formData.name}
+					onChange={(e) =>
+						setFormData({ ...formData, name: e.target.value })
+					}
+					required
+				/>
+			</div>
+		)}
 		<div>
 			<label>Email:</label>
 			<input
