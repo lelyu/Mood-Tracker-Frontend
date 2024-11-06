@@ -11,7 +11,13 @@ const MoodForm = () => {
 	const onSubmit = async (e) => {
 		e.preventDefault() // prevent page refresh
 		try {
-			await axios.post(API_URL, { mood, intensity, note })
+			await axios.post(
+				API_URL,
+				{ mood, intensity, note },
+				{
+					withCredentials: true,
+				}
+			)
 			setMood('')
 			setIntensity(1)
 			setNote('')
