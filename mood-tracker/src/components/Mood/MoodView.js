@@ -9,19 +9,25 @@ const MoodView = () => {
 	useEffect(() => {
 		const fetchMoods = async () => {
 			try {
-				const { data } = await axios.get(API_URL)
-				setMoods(data)
+				const { data } = await axios.get(API_URL, {
+					withCredentials: true,
+				})
+				console.log(data)
+				setMoods(data.moods)
+				console.log('moods--->', moods)
 				setError('')
 			} catch (err) {
 				setError(err.response?.data?.error || 'An error occurred')
 			}
 		}
 		fetchMoods()
-	}, [])
+	})
 
 	const deleteMood = async (id) => {
 		try {
-			await axios.delete(API_URL + id)
+			await axios.delete(API_URL + id, {
+				withCredentials: true,
+			})
 			setMoods((prevMoods) => prevMoods.filter((mood) => mood._id !== id))
 			setError('')
 		} catch (err) {
@@ -31,7 +37,13 @@ const MoodView = () => {
 
 	const updateMood = async (id, mood) => {
 		try {
-			await axios.put(API_URL + id, { mood })
+			await axios.put(
+				API_URL + id,
+				{ mood },
+				{
+					withCredentials: true,
+				}
+			)
 			setMoods((prevMoods) =>
 				prevMoods.map((prevMood) =>
 					prevMood._id === id ? { ...prevMood, mood } : prevMood
