@@ -12,16 +12,14 @@ const MoodView = () => {
 				const { data } = await axios.get(API_URL, {
 					withCredentials: true,
 				})
-				console.log(data)
 				setMoods(data.moods)
-				console.log('moods--->', moods)
 				setError('')
 			} catch (err) {
 				setError(err.response?.data?.error || 'An error occurred')
 			}
 		}
 		fetchMoods()
-	})
+	}, [])
 
 	const deleteMood = async (id) => {
 		try {
