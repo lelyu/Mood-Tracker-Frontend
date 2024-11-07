@@ -2,4 +2,6 @@ Oct 30: added css for the nav bar
 
 Nov 2: added mood form for the post API
 
-todo: need to have moodview form and buttons to support patch and delete
+Nov 7: added heat map
+
+todo: style everything and connect heatmap with the backend data
