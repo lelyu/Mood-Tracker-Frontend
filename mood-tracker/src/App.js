@@ -12,6 +12,8 @@ import axios from 'axios'
 const App = () => {
 	const API_URL = 'http://localhost:3000/api/v1/'
 	const [isAuthenticated, setIsAuthenticated] = useState(false)
+	const [error, setError] = useState('')
+
 	// call isLoggedIn API from backend to check whether the user is logged in or not
 	useEffect(() => {
 		const checkLoggedIn = async () => {
@@ -27,12 +29,35 @@ const App = () => {
 		checkLoggedIn()
 	}, [])
 
+	const handleLogout = async () => {
+		try {
+			const response = await axios.post(
+				API_URL + 'logout',
+				{},
+				{
+					withCredentials: true,
+				}
+			) // Replace with your actual API route
+			console.log('Logout successful:', response.data)
+			setIsAuthenticated(false)
+			// refresh the page to update the UI
+			window.location.reload()
+			// Redirect user or clear token, etc.
+		} catch (err) {
+			setError('Logout failed. Please try again.')
+		}
+	}
+
 	return (
 		<Router>
 			<nav className='navbar'>
 				<Link to='/'>Mood Tracker App</Link>
 				{isAuthenticated && <Link to='/mood'>Mood</Link>}
-				<Link to='/register'>Register</Link>
+				{!isAuthenticated && <Link to='/register'>Register</Link>}
+				{isAuthenticated && (
+					<button onClick={handleLogout}>Logout</button>
+				)}
+				{!isAuthenticated && <Link to='/login'>Login</Link>}
 			</nav>
 			<Routes>
 				<Route path='/login' element={<Login />} />

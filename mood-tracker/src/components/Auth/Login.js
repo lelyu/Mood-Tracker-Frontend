@@ -17,7 +17,8 @@ const Login = () => {
 			}) // Replace with your actual API route
 			console.log('Login successful:', response.data)
 			setIsLoggedIn(true)
-			// Redirect user or save token, etc.
+			// Redirect to main page
+			window.location.href = '/'
 		} catch (err) {
 			setError('Login failed. Check your credentials.')
 		}
