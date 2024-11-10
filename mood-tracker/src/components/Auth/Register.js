@@ -26,6 +26,7 @@ const Register = () => {
 		} catch (err) {
 			setError('Registration failed. Please try again.')
 		}
+		window.location.href = '/login'
 	}
 
 	return (

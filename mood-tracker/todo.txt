@@ -4,4 +4,5 @@ Nov 2: added mood form for the post API
 
 Nov 7: added heat map
 
-todo: style everything and connect heatmap with the backend data
+Nov 10: improve auth workflow
+
