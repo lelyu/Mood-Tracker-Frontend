@@ -52,7 +52,7 @@ const App = () => {
 		<Router>
 			<nav className='navbar'>
 				<Link to='/'>Mood Tracker App</Link>
-				{isAuthenticated && <Link to='/mood'>Mood</Link>}
+				{isAuthenticated && <Link to='/mood'>Mood History</Link>}
 				{!isAuthenticated && <Link to='/register'>Register</Link>}
 				{isAuthenticated && (
 					<button onClick={handleLogout}>Logout</button>
