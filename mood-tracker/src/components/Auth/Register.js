@@ -31,7 +31,6 @@ const Register = () => {
 
 	return (
 		<div>
-			<h2>Register</h2>
 			<AuthForm
 				onSubmit={handleRegister}
 				isRegister={true}

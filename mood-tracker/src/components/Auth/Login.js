@@ -47,7 +47,6 @@ const Login = () => {
 				<button onClick={handleLogout}>Logout</button>
 			) : (
 				<>
-					<h2>Login</h2>
 					<AuthForm
 						onSubmit={handleLogin}
 						isRegister={false}

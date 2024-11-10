@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-
+import '../../css/MoodView.css'
 const MoodView = () => {
 	const [moods, setMoods] = useState([])
 	const [error, setError] = useState('')
@@ -72,7 +72,7 @@ const MoodView = () => {
 	}
 
 	return (
-		<div>
+		<div className='mood-view'>
 			<h1>Mood Tracker</h1>
 			{error && <div className='error'>{error}</div>}
 			{moods.length === 0 ? (

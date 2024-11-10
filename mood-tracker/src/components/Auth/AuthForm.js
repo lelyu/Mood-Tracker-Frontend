@@ -1,8 +1,7 @@
-// src/components/Auth/AuthForm.js
 import React from 'react'
-
+import '../../css/AuthForm.css'
 const AuthForm = ({ onSubmit, isRegister, setFormData, formData, error }) => (
-	<form onSubmit={onSubmit}>
+	<form className='auth-form' onSubmit={onSubmit}>
 		{isRegister && (
 			<div>
 				<label>Username:</label>

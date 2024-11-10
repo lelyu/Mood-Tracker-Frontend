@@ -51,7 +51,7 @@ const Dashboard = () => {
 		<div>
 			<h1>How are you feeling today?</h1>
 			<MoodForm />
-			<button onClick={testAuthAPICalls}>Test Auth API Calls</button>
+			{/* <button onClick={testAuthAPICalls}>Test Auth API Calls</button> */}
 			{/* Show loading indicator or HeatMap */}
 			{loading ? (
 				<div>Loading data...</div> // Loading indicator

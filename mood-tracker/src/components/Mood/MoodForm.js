@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-
+import '../../css/MoodForm.css'
 const MoodForm = () => {
 	const [mood, setMood] = useState('')
 	const [intensity, setIntensity] = useState(1)
