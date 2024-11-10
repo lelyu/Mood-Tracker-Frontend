@@ -20,9 +20,9 @@ const Register = () => {
 			return
 		}
 		try {
-			const response = await axios.post(API_URL + 'register', formData) // Replace with your actual API route
+			console.log('Registering user...', formData)
+			const response = await axios.post(API_URL + 'register', formData)
 			console.log('Registration successful:', response.data)
-			// Redirect user or show success message
 		} catch (err) {
 			setError('Registration failed. Please try again.')
 		}

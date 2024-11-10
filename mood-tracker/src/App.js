@@ -37,12 +37,10 @@ const App = () => {
 				{
 					withCredentials: true,
 				}
-			) // Replace with your actual API route
+			)
 			console.log('Logout successful:', response.data)
 			setIsAuthenticated(false)
-			// refresh the page to update the UI
-			window.location.reload()
-			// Redirect user or clear token, etc.
+			window.location.href = '/login'
 		} catch (err) {
 			setError('Logout failed. Please try again.')
 		}
