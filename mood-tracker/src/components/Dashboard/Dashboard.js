@@ -15,8 +15,9 @@ const Dashboard = () => {
 		const fetchData = async () => {
 			try {
 				const loadedData = await d3.csv(
-					'https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/heatmap_data.csv'
+					'https://raw.githubusercontent.com/lelyu/Mood-Tracker-Frontend/refs/heads/main/mood-tracker/mockData.csv'
 				)
+				console.log('Loaded data:', loadedData)
 				const formattedData = loadedData.map((d) => ({
 					group: d.group,
 					variable: d.variable,
