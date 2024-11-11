@@ -63,7 +63,7 @@ const Dashboard = () => {
 					and triggers, promoting proactive mental health management.
 				</p>
 			</div>
-			<MoodForm />
+			<MoodForm className='mood-form' />
 			{/* <button onClick={testAuthAPICalls}>Test Auth API Calls</button> */}
 			{/* Show loading indicator or HeatMap */}
 			{loading ? (
