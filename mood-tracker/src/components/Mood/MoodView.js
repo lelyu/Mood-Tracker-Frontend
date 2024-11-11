@@ -87,12 +87,14 @@ const MoodView = () => {
 							<div>
 								<strong>Intensity:</strong> {mood.intensity}
 							</div>
-							<div>
-								<strong>Note:</strong> {mood.note}
-							</div>
+
 							<div>
 								<strong>Timestamp:</strong>{' '}
 								{new Date(mood.createdAt).toLocaleString()}
+							</div>
+
+							<div>
+								<strong>Note:</strong> {mood.note}
 							</div>
 
 							{editingId === mood._id ? (

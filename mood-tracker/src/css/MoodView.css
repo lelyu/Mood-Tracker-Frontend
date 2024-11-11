@@ -62,3 +62,23 @@
 .mood-view button:nth-child(2) {
     float: right;
 }
+
+.mood-view ul li div:nth-child(1),
+.mood-view ul li div:nth-child(2),
+.mood-view ul li div:nth-child(3) {
+    display: inline;
+}
+
+.mood-view ul li div:nth-child(3) {
+    float: right;
+}
+
+.mood-view ul li div {
+    margin: 0.5rem 0.5rem
+}
+
+
+.mood-view ul li div button {
+    margin: 0.5rem;
+    
+}
