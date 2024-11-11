@@ -8,6 +8,7 @@ import MoodView from './components/Mood/MoodView'
 import './css/Nav.css'
 import Dashboard from './components/Dashboard/Dashboard'
 import axios from 'axios'
+import './css/Footer.css'
 
 const App = () => {
 	const API_URL = 'http://localhost:3000/api/v1/'
@@ -63,6 +64,12 @@ const App = () => {
 				<Route path='/' element={<Dashboard />} />
 				<Route path='/mood' element={<MoodView />} />
 			</Routes>
+			<footer className='footer'>
+				<p>
+					&copy; 2024 Mood Tracker App. Developed by Lok Lyu. All
+					rights reserved.
+				</p>
+			</footer>
 		</Router>
 	)
 }
