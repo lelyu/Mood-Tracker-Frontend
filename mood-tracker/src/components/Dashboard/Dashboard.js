@@ -3,7 +3,7 @@ import MoodForm from '../Mood/MoodForm'
 import axios from 'axios'
 import HeatMap from './HeatMap'
 import * as d3 from 'd3'
-
+import '../../css/Dashboard.css'
 const Dashboard = () => {
 	const [showForm, setShowForm] = useState(false)
 	const [data, setData] = useState([])
@@ -48,8 +48,21 @@ const Dashboard = () => {
 	}
 
 	return (
-		<div>
+		<div className='dashboard'>
 			<h1>How are you feeling today?</h1>
+			<div>
+				<p>
+					Maintaining a daily journal has been shown to significantly
+					enhance mental well-being by fostering self-awareness and
+					emotional regulation. The Daily Mood Tracker app is designed
+					to encourage this beneficial habit, providing users with an
+					intuitive platform to log their emotions and experiences
+					effortlessly. By offering insightful data visualizations,
+					such as heat maps that highlight mood patterns over time,
+					the app empowers individuals to identify emotional trends
+					and triggers, promoting proactive mental health management.
+				</p>
+			</div>
 			<MoodForm />
 			{/* <button onClick={testAuthAPICalls}>Test Auth API Calls</button> */}
 			{/* Show loading indicator or HeatMap */}

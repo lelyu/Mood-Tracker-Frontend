@@ -1,0 +1,18 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    height: 100vh;
+    padding: 1rem;
+}
+
+.dashboard h1 {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+.dashboard p {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
