@@ -19,9 +19,9 @@ const Dashboard = () => {
 				)
 				console.log('Loaded data:', loadedData)
 				const formattedData = loadedData.map((d) => ({
-					group: d.group,
-					variable: d.variable,
-					value: +d.value,
+					Month: d.Month,
+					Date: d.Date,
+					value: +d.Date,
 				}))
 				setData(formattedData)
 			} catch (error) {
