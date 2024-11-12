@@ -17,11 +17,19 @@ label {
 
 select,
 input[type='number'],
-input[type='text'] {
-    width: 100%;
+textarea {
+    width: 90%;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
+    height: 5rem;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #333;
 }
 
 button {

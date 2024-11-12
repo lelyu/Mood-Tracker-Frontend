@@ -58,7 +58,7 @@ const MoodForm = () => {
 
 			<div>
 				<label>Note (Optional):</label>
-				<input
+				<textarea
 					type='text'
 					maxLength='100'
 					value={note}
