@@ -99,7 +99,7 @@ const MoodView = () => {
 
 							{editingId === mood._id ? (
 								<div>
-									<input
+									<select
 										type='text'
 										placeholder='Mood'
 										value={editData.mood}
@@ -108,8 +108,16 @@ const MoodView = () => {
 												...editData,
 												mood: e.target.value,
 											})
-										}
-									/>
+										}>
+										<option value=''>Select Mood</option>
+										<option value='happy'>Happy</option>
+										<option value='sad'>Sad</option>
+										<option value='angry'>Angry</option>
+										<option value='relaxed'>Relaxed</option>
+										<option value='stressed'>
+											Stressed
+										</option>
+									</select>
 									<input
 										type='text'
 										placeholder='Intensity'
