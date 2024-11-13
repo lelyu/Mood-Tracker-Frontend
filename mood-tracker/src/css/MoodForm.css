@@ -49,3 +49,24 @@ button:hover {
 p {
     margin: 0;
 }
+
+
+.success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.success-message {
+    animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
