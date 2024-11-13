@@ -250,7 +250,7 @@ const HeatMap = ({ data }) => {
 			.attr('y', -50)
 			.attr('text-anchor', 'left')
 			.style('font-size', '22px')
-			.text('A d3.js heatmap')
+			.text('Mood Heatmap')
 
 		svg.append('text')
 			.attr('x', 0)
@@ -259,7 +259,9 @@ const HeatMap = ({ data }) => {
 			.style('font-size', '14px')
 			.style('fill', 'grey')
 			.style('max-width', 400)
-			.text('A short description of the take-away message of this chart.')
+			.text(
+				'Consistency is Key. The more you log, the more insights you get.'
+			)
 
 		return () => tooltip.remove()
 	}, [data])
