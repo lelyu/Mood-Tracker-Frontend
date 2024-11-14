@@ -24,11 +24,22 @@ const Dashboard = () => {
 					const date = new Date(timeCreated)
 					const month = date.getMonth() + 1
 					const day = date.getDate()
+
+					const count = data.moods.filter((mood) => {
+						const moodDate = new Date(mood.createdAt)
+						return (
+							moodDate.getDate() === day &&
+							moodDate.getMonth() + 1 === month
+						)
+					}).length
+
 					return {
 						Date: day,
 						Month: month,
 						Mood: d.mood,
 						Intensity: d.intensity,
+						Count: count,
+						Year: date.getFullYear(),
 					}
 				})
 				setData(formattedData)

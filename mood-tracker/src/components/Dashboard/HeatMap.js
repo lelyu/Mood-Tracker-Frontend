@@ -218,7 +218,18 @@ const HeatMap = ({ data }) => {
 		}
 		const mousemove = function (event, d) {
 			tooltip
-				.html('The exact value of<br>this cell is: ' + d.value)
+				.html(
+					'On ' +
+						monthMap[d.Month] +
+						' ' +
+						d.Date +
+						', ' +
+						d.Year +
+						', ' +
+						'you logged your mood ' +
+						d.Count +
+						(d.Count === 1 ? ' time' : ' times')
+				)
 				.style('left', event.pageX + 10 + 'px')
 				.style('top', event.pageY - 10 + 'px')
 		}
