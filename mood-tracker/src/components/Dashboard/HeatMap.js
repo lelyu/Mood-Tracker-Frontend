@@ -50,7 +50,6 @@ const HeatMap = ({ data }) => {
 
 		// Generate the Y axis dynamically from the data
 		const myVars = Array.from(new Set(data.map((d) => d.Date)))
-
 		const x = d3.scaleBand().range([0, width]).domain(myGroups).padding(0.5)
 		svg.append('g')
 			.style('font-size', 15)
@@ -231,7 +230,7 @@ const HeatMap = ({ data }) => {
 		svg.selectAll()
 			.data(data)
 			.join('rect')
-			.attr('x', (d) => x(monthMap[d.Month.padStart(2, '0')]))
+			.attr('x', (d) => x(monthMap[d.Month].padStart(2, '0')))
 			.attr('y', (d) => y(d.Date))
 			.attr('rx', 4)
 			.attr('ry', 4)

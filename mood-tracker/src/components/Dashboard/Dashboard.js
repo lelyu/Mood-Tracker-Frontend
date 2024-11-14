@@ -9,20 +9,28 @@ const Dashboard = () => {
 	const [data, setData] = useState([])
 	const [loading, setLoading] = useState(true) // New state for loading indicator
 	const API_URL = 'http://localhost:3000/api/v1/'
-
 	useEffect(() => {
 		// Load data from CSV with async/await
 		const fetchData = async () => {
 			try {
-				const loadedData = await d3.csv(
-					'https://raw.githubusercontent.com/lelyu/Mood-Tracker-Frontend/refs/heads/main/mood-tracker/mockData.csv'
+				const { data } = await axios.get(
+					'http://localhost:3000/api/v1/mood/',
+					{
+						withCredentials: true,
+					}
 				)
-				console.log('Loaded data:', loadedData)
-				const formattedData = loadedData.map((d) => ({
-					Month: d.Month,
-					Date: d.Date,
-					value: +d.Date,
-				}))
+				const formattedData = data.moods.map(function (d) {
+					const timeCreated = d.createdAt
+					const date = new Date(timeCreated)
+					const month = date.getMonth() + 1
+					const day = date.getDate()
+					return {
+						Date: day,
+						Month: month,
+						Mood: d.mood,
+						Intensity: d.intensity,
+					}
+				})
 				setData(formattedData)
 			} catch (error) {
 				console.error('Error loading the data:', error)
