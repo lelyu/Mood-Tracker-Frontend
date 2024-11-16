@@ -94,7 +94,7 @@
     border-radius: 5px;
 }
 
-textarea {
+.mood-view textarea {
     width: 60%;
     resize: vertical;
     height: 5rem;
@@ -103,14 +103,14 @@ textarea {
     color: #333;
 }
 
-select {
+.mood-view select {
     width: 30%;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-input {
+.mood-view input {
     width: 30%;
     padding: 0.5rem;
     border: 1px solid #ccc;
