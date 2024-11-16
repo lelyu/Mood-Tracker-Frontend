@@ -53,8 +53,8 @@ const MoodView = () => {
 			setError('Intensity must be between 1 and 10')
 			return false
 		}
-		if (note.length > 100) {
-			setError('Note must be 200 characters or less')
+		if (note.length > 500) {
+			setError('Note must be 500 characters or less')
 			return false
 		}
 		return true
@@ -144,7 +144,7 @@ const MoodView = () => {
 											})
 										}
 									/>
-									<input
+									<textarea
 										type='text'
 										placeholder='Note'
 										value={editData.note}
@@ -155,12 +155,16 @@ const MoodView = () => {
 											})
 										}
 									/>
-									<button onClick={() => saveMood(mood._id)}>
-										Save
-									</button>
-									<button onClick={() => setEditingId(null)}>
-										Cancel
-									</button>
+									<div className='Edit-Buttons'>
+										<button
+											onClick={() => saveMood(mood._id)}>
+											Save
+										</button>
+										<button
+											onClick={() => setEditingId(null)}>
+											Cancel
+										</button>
+									</div>
 								</div>
 							) : (
 								<div>

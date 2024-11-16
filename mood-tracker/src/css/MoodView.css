@@ -93,3 +93,26 @@
     border: 1px solid #ffcccc;
     border-radius: 5px;
 }
+
+textarea {
+    width: 60%;
+    resize: vertical;
+    height: 5rem;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #333;
+}
+
+select {
+    width: 30%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input {
+    width: 30%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

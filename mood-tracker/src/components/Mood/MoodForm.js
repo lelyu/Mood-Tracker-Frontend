@@ -75,7 +75,7 @@ const MoodForm = () => {
 					<label>Note (Optional):</label>
 					<textarea
 						type='text'
-						maxLength='100'
+						maxLength='500'
 						value={note}
 						onChange={(e) => setNote(e.target.value)}
 					/>
