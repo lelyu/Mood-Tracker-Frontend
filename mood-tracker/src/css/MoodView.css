@@ -83,3 +83,13 @@
     margin: 0.5rem;
     
 }
+
+.mood-view .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    background-color: #ffe6e6;
+    padding: 10px;
+    border: 1px solid #ffcccc;
+    border-radius: 5px;
+}

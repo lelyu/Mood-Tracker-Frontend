@@ -47,8 +47,23 @@ const MoodView = () => {
 			note: mood.note,
 		})
 	}
+	const validateEditData = () => {
+		const { intensity, note } = editData
+		if (intensity < 1 || intensity > 10) {
+			setError('Intensity must be between 1 and 10')
+			return false
+		}
+		if (note.length > 100) {
+			setError('Note must be 200 characters or less')
+			return false
+		}
+		return true
+	}
 
 	const saveMood = async (id) => {
+		if (!validateEditData()) {
+			return
+		}
 		try {
 			await axios.patch(
 				API_URL + id,
