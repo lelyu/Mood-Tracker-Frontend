@@ -18,7 +18,7 @@ const MoodView = () => {
 				const { data } = await axios.get(API_URL, {
 					withCredentials: true,
 				})
-				setMoods(data.moods)
+				setMoods(data.moods.reverse())
 				setError('')
 			} catch (err) {
 				setError(err.response?.data?.error || 'An error occurred')

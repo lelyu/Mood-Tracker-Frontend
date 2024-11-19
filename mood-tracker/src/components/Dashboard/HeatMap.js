@@ -1,15 +1,32 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import * as d3 from 'd3'
 
 const HeatMap = ({ data }) => {
 	const svgRef = useRef(null)
+	const [dimensions, setDimensions] = useState({
+		width: window.innerWidth * 0.8, // 90% of the viewport width
+		height: window.innerHeight * 0.8, // 90% of the viewport height
+	})
+
+	// Update dimensions on window resize
+	useEffect(() => {
+		const handleResize = () => {
+			setDimensions({
+				width: window.innerWidth * 0.9,
+				height: window.innerHeight * 0.9,
+			})
+		}
+		window.addEventListener('resize', handleResize)
+		console.log(dimensions.width, dimensions.height)
+		return () => window.removeEventListener('resize', handleResize)
+	}, [])
 
 	useEffect(() => {
 		d3.select(svgRef.current).selectAll('*').remove()
 
 		const margin = { top: 80, right: 25, bottom: 30, left: 40 },
-			width = 600 - margin.left - margin.right,
-			height = 600 - margin.top - margin.bottom
+			width = dimensions.width - margin.left - margin.right,
+			height = dimensions.height - margin.top - margin.bottom
 
 		const svg = d3
 			.select(svgRef.current)
