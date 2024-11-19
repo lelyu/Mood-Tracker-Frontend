@@ -52,21 +52,6 @@ const Dashboard = () => {
 		fetchData()
 	}, [])
 
-	const testAuthAPICalls = async () => {
-		try {
-			console.log('Testing API calls...')
-			const response = await axios.get(API_URL + 'dashboard', {
-				withCredentials: true,
-			})
-			console.log('Test API call:', response.data)
-		} catch (err) {
-			console.error(
-				'Test API call failed:',
-				err.response?.data?.error || 'An error occurred'
-			)
-		}
-	}
-
 	return (
 		<div className='dashboard'>
 			<h1>How are you feeling today?</h1>
