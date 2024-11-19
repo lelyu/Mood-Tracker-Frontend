@@ -8,8 +8,8 @@ const HeatMap = ({ data }) => {
 		d3.select(svgRef.current).selectAll('*').remove()
 
 		const margin = { top: 80, right: 25, bottom: 30, left: 40 },
-			width = 450 - margin.left - margin.right,
-			height = 450 - margin.top - margin.bottom
+			width = 600 - margin.left - margin.right,
+			height = 600 - margin.top - margin.bottom
 
 		const svg = d3
 			.select(svgRef.current)

@@ -5,20 +5,15 @@ import HeatMap from './HeatMap'
 import * as d3 from 'd3'
 import '../../css/Dashboard.css'
 const Dashboard = () => {
-	const [showForm, setShowForm] = useState(false)
 	const [data, setData] = useState([])
-	const [loading, setLoading] = useState(true) // New state for loading indicator
+	const [loading, setLoading] = useState(true)
 	const API_URL = 'http://localhost:3000/api/v1/'
 	useEffect(() => {
-		// Load data from CSV with async/await
 		const fetchData = async () => {
 			try {
-				const { data } = await axios.get(
-					'http://localhost:3000/api/v1/mood/',
-					{
-						withCredentials: true,
-					}
-				)
+				const { data } = await axios.get(API_URL + 'mood/', {
+					withCredentials: true,
+				})
 				const formattedData = data.moods.map(function (d) {
 					const timeCreated = d.createdAt
 					const date = new Date(timeCreated)
@@ -69,12 +64,11 @@ const Dashboard = () => {
 				</p>
 			</div>
 			<MoodForm className='mood-form' />
-			{/* <button onClick={testAuthAPICalls}>Test Auth API Calls</button> */}
-			{/* Show loading indicator or HeatMap */}
+
 			{loading ? (
-				<div>Loading data...</div> // Loading indicator
+				<div>Loading data...</div>
 			) : (
-				<HeatMap data={data} />
+				<HeatMap className='heat-map' data={data} />
 			)}
 		</div>
 	)
