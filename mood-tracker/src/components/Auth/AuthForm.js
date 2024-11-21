@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../css/AuthForm.css'
+import { Link } from 'react-router-dom'
 const AuthForm = ({ onSubmit, isRegister, setFormData, formData, error }) => (
 	<form className='auth-form' onSubmit={onSubmit}>
 		{isRegister && (
@@ -54,6 +55,7 @@ const AuthForm = ({ onSubmit, isRegister, setFormData, formData, error }) => (
 			</div>
 		)}
 		{error && <p style={{ color: 'red' }}>{error}</p>}
+		{!isRegister && <Link to='/register'>Not a user? Register here</Link>}
 		<button type='submit'>{isRegister ? 'Register' : 'Login'}</button>
 	</form>
 )
