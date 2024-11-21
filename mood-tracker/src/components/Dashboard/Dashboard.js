@@ -4,10 +4,26 @@ import axios from 'axios'
 import HeatMap from './HeatMap'
 import * as d3 from 'd3'
 import '../../css/Dashboard.css'
+import { Link } from 'react-router-dom'
 const Dashboard = () => {
 	const [data, setData] = useState([])
 	const [loading, setLoading] = useState(true)
+	const [isLoggedIn, setIsLoggedIn] = useState(false)
 	const API_URL = 'http://localhost:3000/api/v1/'
+	// call isLoggedIn API from backend to check whether the user is logged in or not
+	useEffect(() => {
+		const checkLoggedIn = async () => {
+			try {
+				const response = await axios.get(API_URL + 'isloggedin', {
+					withCredentials: true,
+				})
+				setIsLoggedIn(response.data.isLoggedIn)
+			} catch (err) {
+				console.error(err)
+			}
+		}
+		checkLoggedIn()
+	}, [])
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -63,12 +79,12 @@ const Dashboard = () => {
 					and triggers, promoting proactive mental health management.
 				</p>
 			</div>
-			<MoodForm className='mood-form' />
+			{isLoggedIn && <MoodForm className='mood-form' />}
 
-			{loading ? (
-				<div>Loading data...</div>
-			) : (
+			{isLoggedIn ? (
 				<HeatMap className='heat-map' data={data} />
+			) : (
+				<Link to='/login'>Login to start</Link>
 			)}
 		</div>
 	)
