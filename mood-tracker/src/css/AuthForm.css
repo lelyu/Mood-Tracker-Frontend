@@ -57,5 +57,5 @@
 }
 
 .auth-form a {
-    text-align: center;
+    max-width: fit-content;
 }
