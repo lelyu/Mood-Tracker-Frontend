@@ -9,6 +9,7 @@ const Dashboard = () => {
 	const [data, setData] = useState([])
 	const [loading, setLoading] = useState(true)
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
+	const [username, setUsername] = useState('')
 	const API_URL = 'http://localhost:3000/api/v1/'
 	// call isLoggedIn API from backend to check whether the user is logged in or not
 	useEffect(() => {
@@ -17,6 +18,7 @@ const Dashboard = () => {
 				const response = await axios.get(API_URL + 'isloggedin', {
 					withCredentials: true,
 				})
+				setUsername(response.data.user.name)
 				setIsLoggedIn(response.data.isLoggedIn)
 			} catch (err) {
 				console.error(err)
@@ -67,6 +69,7 @@ const Dashboard = () => {
 		<div className='dashboard'>
 			<h1>How are you feeling today?</h1>
 			<div>
+				{isLoggedIn && <h2>Hello, {username}</h2>}
 				<p>
 					Maintaining a daily journal has been shown to significantly
 					enhance mental well-being by fostering self-awareness and
