@@ -103,12 +103,35 @@
     border-radius: 4px;
 }
 
+.mood-view .delete-selected-button {
+    max-width: fit-content;
+    display: inline;
+
+}
+
+.mood-view .select-all-button {
+    max-width: fit-content;
+    display: inline;
+}
+
 .mood-view .delete-selected-button button {
     float: left;
-    margin: 0.5rem 0;
+    margin: 0 0 0.5rem 0;
+}
+
+
+.mood-view .select-all-button button {
+    float: left;
+    margin: 0 0 0.5rem 0;
 }
 
 .mood-view ul li .select-checkbox{
     margin: 0.5rem 0.5rem;
     max-width: fit-content;
+}
+
+.mood-view .button-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
 }

@@ -60,6 +60,14 @@ const MoodView = () => {
 		}
 	}
 
+	const selectAll = () => {
+		if (selectedMoods.length === moods.length) {
+			setSelectedMoods([])
+		} else {
+			setSelectedMoods(moods.map((mood) => mood._id))
+		}
+	}
+
 	const startEditing = (mood) => {
 		setEditingId(mood._id)
 		setEditData({
@@ -118,11 +126,18 @@ const MoodView = () => {
 
 	return (
 		<div className='mood-view'>
-			<h1>Mood Tracker</h1>
-			<div className='delete-selected-button'>
-				<button className='' onClick={deleteSelectedMoods}>
-					Delete Selected
-				</button>
+			<h1>Mood History</h1>
+			<div className='button-container'>
+				<div className='delete-selected-button'>
+					<button className='' onClick={deleteSelectedMoods}>
+						Delete Selected
+					</button>
+				</div>
+				<div className='select-all-button'>
+					<button className='' onClick={selectAll}>
+						Select All
+					</button>
+				</div>
 			</div>
 			{error && <div className='error'>{error}</div>}
 			{moods.length === 0 ? (
