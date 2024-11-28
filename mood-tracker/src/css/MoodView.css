@@ -104,9 +104,11 @@
 }
 
 .mood-view .delete-selected-button button {
-    float: right;
-    margin: 1rem 0;
+    float: left;
+    margin: 0.5rem 0;
 }
 
 .mood-view ul li .select-checkbox{
+    margin: 0.5rem 0.5rem;
+    max-width: fit-content;
 }
