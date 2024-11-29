@@ -29,6 +29,14 @@ const MoodView = () => {
 		fetchMoods()
 	}, [])
 
+	const confirmDeleteMood = (id) => {
+		if (
+			window.confirm('Are you sure you want to delete this mood record?')
+		) {
+			deleteMood(id)
+		}
+	}
+
 	const deleteMood = async (id) => {
 		try {
 			await axios.delete(API_URL + id, {
@@ -38,6 +46,16 @@ const MoodView = () => {
 			setError('')
 		} catch (err) {
 			setError(err.response?.data?.error || 'An error occurred')
+		}
+	}
+
+	const confirmDeleteSelectedMoods = () => {
+		if (
+			window.confirm(
+				'Are you sure you want to delete the selected mood records?'
+			)
+		) {
+			deleteSelectedMoods()
 		}
 	}
 
@@ -129,7 +147,7 @@ const MoodView = () => {
 			<h1>Mood History</h1>
 			<div className='button-container'>
 				<div className='delete-selected-button'>
-					<button className='' onClick={deleteSelectedMoods}>
+					<button className='' onClick={confirmDeleteSelectedMoods}>
 						Delete Selected
 					</button>
 				</div>
@@ -238,7 +256,7 @@ const MoodView = () => {
 										</button>
 										<button
 											onClick={() =>
-												deleteMood(mood._id)
+												confirmDeleteMood(mood._id)
 											}>
 											Delete
 										</button>
