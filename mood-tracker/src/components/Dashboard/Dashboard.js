@@ -5,17 +5,19 @@ import HeatMap from './HeatMap'
 import * as d3 from 'd3'
 import '../../css/Dashboard.css'
 import { Link } from 'react-router-dom'
+
 const Dashboard = () => {
 	const [data, setData] = useState([])
 	const [loading, setLoading] = useState(true)
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 	const [username, setUsername] = useState('')
-	const API_URL = 'http://localhost:3000/api/v1/'
+	const API_URL = process.env.REACT_APP_BACKEND_API_URL
+
 	// call isLoggedIn API from backend to check whether the user is logged in or not
 	useEffect(() => {
 		const checkLoggedIn = async () => {
 			try {
-				const response = await axios.get(API_URL + 'isloggedin', {
+				const response = await axios.get(API_URL + '/isloggedin', {
 					withCredentials: true,
 				})
 				setUsername(response.data.user.name)
@@ -29,7 +31,7 @@ const Dashboard = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const { data } = await axios.get(API_URL + 'mood/', {
+				const { data } = await axios.get(API_URL + '/mood/', {
 					withCredentials: true,
 				})
 				const formattedData = data.moods.map(function (d) {

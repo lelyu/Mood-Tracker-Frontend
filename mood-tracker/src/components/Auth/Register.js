@@ -2,9 +2,10 @@
 import React, { useState } from 'react'
 import AuthForm from './AuthForm'
 import axios from 'axios'
-const API_URL = 'http://localhost:3000/api/v1/'
 
 const Register = () => {
+	const API_URL = process.env.REACT_APP_BACKEND_API_URL
+
 	const [formData, setFormData] = useState({
 		name: '',
 		password: '',
@@ -21,12 +22,12 @@ const Register = () => {
 		}
 		try {
 			console.log('Registering user...', formData)
-			const response = await axios.post(API_URL + 'register', formData)
+			const response = await axios.post(API_URL + '/register', formData)
 			console.log('Registration successful:', response.data)
+			window.location.href = '/login'
 		} catch (err) {
 			setError('Registration failed. Please try again.')
 		}
-		window.location.href = '/login'
 	}
 
 	return (

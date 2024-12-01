@@ -8,8 +8,8 @@ const MoodForm = () => {
 	const [note, setNote] = useState('')
 	const [error, setError] = useState('')
 	const [isSubmitted, setIsSubmitted] = useState(false)
-	const API_URL = 'http://localhost:3000/api/v1/mood/'
 
+	const API_URL = process.env.REACT_APP_BACKEND_API_URL + '/mood/'
 	const onSubmit = async (e) => {
 		e.preventDefault() // prevent page refresh
 		try {

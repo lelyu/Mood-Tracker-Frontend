@@ -3,6 +3,7 @@ import axios from 'axios'
 import '../../css/MoodView.css'
 
 const MoodView = () => {
+	const API_URL = process.env.REACT_APP_BACKEND_API_URL + '/mood/'
 	const [moods, setMoods] = useState([])
 	const [error, setError] = useState('')
 	const [editingId, setEditingId] = useState(null)
@@ -12,7 +13,6 @@ const MoodView = () => {
 		note: '',
 	})
 	const [selectedMoods, setSelectedMoods] = useState([])
-	const API_URL = 'http://localhost:3000/api/v1/mood/'
 
 	useEffect(() => {
 		const fetchMoods = async () => {

@@ -3,8 +3,9 @@ import React, { useState } from 'react'
 import AuthForm from './AuthForm'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:3000/api/v1/'
 const Login = () => {
+	const API_URL = process.env.REACT_APP_BACKEND_API_URL
+
 	const [formData, setFormData] = useState({ email: '', password: '' })
 	const [error, setError] = useState('')
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -12,7 +13,7 @@ const Login = () => {
 	const handleLogin = async (e) => {
 		e.preventDefault()
 		try {
-			const response = await axios.post(API_URL + 'login', formData, {
+			const response = await axios.post(API_URL + '/login', formData, {
 				withCredentials: true,
 			}) // Replace with your actual API route
 			console.log('Login successful:', response.data)
