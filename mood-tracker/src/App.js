@@ -11,7 +11,7 @@ import axios from 'axios'
 import './css/Footer.css'
 
 const App = () => {
-	const API_URL = 'http://localhost:3000/api/v1/'
+	const API_URL = process.env.REACT_APP_BACKEND_API_URL
 	const [isAuthenticated, setIsAuthenticated] = useState(false)
 	const [error, setError] = useState('')
 
