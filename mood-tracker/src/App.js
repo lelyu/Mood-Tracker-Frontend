@@ -19,7 +19,7 @@ const App = () => {
 	useEffect(() => {
 		const checkLoggedIn = async () => {
 			try {
-				const response = await axios.get(API_URL + 'isloggedin', {
+				const response = await axios.get(API_URL + '/isloggedin', {
 					withCredentials: true,
 				})
 				setIsAuthenticated(response.data.isLoggedIn)
@@ -33,7 +33,7 @@ const App = () => {
 	const handleLogout = async () => {
 		try {
 			const response = await axios.post(
-				API_URL + 'logout',
+				API_URL + '/logout',
 				{},
 				{
 					withCredentials: true,
