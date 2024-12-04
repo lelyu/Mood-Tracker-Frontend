@@ -15,7 +15,7 @@ const Login = () => {
 		try {
 			const response = await axios.post(API_URL + '/login', formData, {
 				withCredentials: true,
-			}) // Replace with your actual API route
+			})
 			console.log('Login successful:', response.data)
 			setIsLoggedIn(true)
 			// Redirect to main page
