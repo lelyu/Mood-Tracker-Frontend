@@ -29,6 +29,7 @@ const Dashboard = () => {
 		}
 		checkLoggedIn()
 	}, [])
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
