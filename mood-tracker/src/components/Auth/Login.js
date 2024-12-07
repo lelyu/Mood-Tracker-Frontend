@@ -18,8 +18,7 @@ const Login = () => {
 			})
 			console.log('Login successful:', response.data)
 			setIsLoggedIn(true)
-			// Redirect to main page
-			// window.location.href = '/'
+			window.location.href = '/'
 		} catch (err) {
 			setError('Login failed. Check your credentials.')
 		}

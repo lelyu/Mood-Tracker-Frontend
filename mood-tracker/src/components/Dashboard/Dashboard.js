@@ -5,7 +5,7 @@ import HeatMap from './HeatMap'
 import * as d3 from 'd3'
 import '../../css/Dashboard.css'
 import { Link } from 'react-router-dom'
-import { useAuth } from '../AuthAuthContext'
+import { useAuth } from '../Auth/AuthContext'
 
 const Dashboard = () => {
 	const [data, setData] = useState([])
