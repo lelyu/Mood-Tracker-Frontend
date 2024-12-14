@@ -24,7 +24,6 @@ export const AuthProvider = ({ children }) => {
 					setUser(null)
 				}
 			} catch (error) {
-				console.error('Error checking login status:', error)
 				setIsLoggedIn(false)
 				setUser(null)
 			}

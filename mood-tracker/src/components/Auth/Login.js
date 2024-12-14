@@ -16,7 +16,6 @@ const Login = () => {
 			const response = await axios.post(API_URL + '/login', formData, {
 				withCredentials: true,
 			})
-			console.log('Login successful:', response.data)
 			setIsLoggedIn(true)
 			window.location.href = '/'
 		} catch (err) {
@@ -33,7 +32,6 @@ const Login = () => {
 					withCredentials: true,
 				}
 			) // Replace with your actual API route
-			console.log('Logout successful:', response.data)
 			setIsLoggedIn(false)
 			// Redirect user or clear token, etc.
 		} catch (err) {

@@ -23,9 +23,7 @@ const Dashboard = () => {
 				})
 				setUsername(response.data.user.name)
 				setIsLoggedIn(response.data.isLoggedIn)
-			} catch (err) {
-				console.error(err)
-			}
+			} catch (err) {}
 		}
 		checkLoggedIn()
 	}, [])
@@ -61,7 +59,6 @@ const Dashboard = () => {
 				})
 				setData(formattedData)
 			} catch (error) {
-				console.error('Error loading the data:', error)
 			} finally {
 				setLoading(false) // Turn off loading when done
 			}

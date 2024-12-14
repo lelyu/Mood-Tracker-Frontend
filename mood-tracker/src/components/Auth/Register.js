@@ -21,9 +21,7 @@ const Register = () => {
 			return
 		}
 		try {
-			console.log('Registering user...', formData)
 			const response = await axios.post(API_URL + '/register', formData)
-			console.log('Registration successful:', response.data)
 			window.location.href = '/login'
 		} catch (err) {
 			setError('Registration failed. Please try again.')

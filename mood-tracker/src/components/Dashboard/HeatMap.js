@@ -17,7 +17,6 @@ const HeatMap = ({ data }) => {
 			})
 		}
 		window.addEventListener('resize', handleResize)
-		console.log(dimensions.width, dimensions.height)
 		return () => window.removeEventListener('resize', handleResize)
 	}, [])
 
